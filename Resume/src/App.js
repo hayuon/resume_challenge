@@ -46,7 +46,7 @@ const theme = extendTheme({
   },
 });
 
-const LAMBDA_URL = 'YOUR-LAMBDA-URL'; // Lambda 함수의 URL
+const LAMBDA_URL = 'https://2eauecwaxsqyt2u4rlc7lsdop40cvasf.lambda-url.ap-northeast-2.on.aws/'; // Lambda 함수의 URL
 
 const App = () => {
   const [visitCount, setVisitCount] = useState(0);
@@ -54,7 +54,7 @@ const App = () => {
 
   useEffect(() => {
     // 방문 카운트 GET
-    fetch(`${LAMBDA_URL}/FILL_ME_CORRECT_PATH`)
+    fetch(`${LAMBDA_URL}/visit`)
       .then(response => response.json())
       .then(data => {
         console.log(`!!!!!!!!!!!!!!! ${data}`)
@@ -73,7 +73,7 @@ const App = () => {
 
   const handleLike = () => {
     // 좋아요 카운트 POST
-    fetch(`${LAMBDA_URL}/FILL_ME_CORRECT_PATH`, { method: 'POST' })
+    fetch(`${LAMBDA_URL}/like`, { method: 'POST' })
       .then(response => response.json())
       .then(data => setLikeCount(data.likes));
   };
